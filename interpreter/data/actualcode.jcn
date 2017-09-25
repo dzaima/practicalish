@@ -1,0 +1,14 @@
+local j = 1,
+      k = l = 166;
+let m = "string";
+for (i = 0; i < 5; i++) {
+  j*= 2
+  println(j*i, k);
+}
+copyofprintln = println
+a = "Hello"
+println(a)
+notcopyofprint = println(a = "World")
+println(a)
+copyofprintln(_add_("counter ended at ", i))
+println(10/4)

@@ -1,0 +1,20 @@
+nine = 9;
+ten = 1234;
+function closurefunc () {
+  local ten = 10;
+  //return a=> ten+nine+a
+  return function (a) ten+nine+a
+}
+
+cres = closurefunc()
+println(cres(2))
+println(ten)
+ten = 10010
+println(ten)
+println(cres(5))
+
+//println(f);
+//println(function (a){a+2}(55))
+//println(a=>2+f(55))
+//println((a=>2+a)(55))
+

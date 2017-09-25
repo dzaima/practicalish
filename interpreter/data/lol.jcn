@@ -1,0 +1,22 @@
+function  function  (function)  println function
+function = function (function) {function function function function}
+function"function x1"
+(function)"function x2"
+function function
+(function)function+1
+
+
+/*function _add_ (a, b) {
+  local cvar = 55;
+  for (();((a==2)- -(b==2))==2;a=0) {return 5; println("FIV", a, a)}
+  a- -b
+}
+println(4+2, 2+4, 1+3, 2+2)
+function a () print("aa") a = 7; println(a) a()
+function lambda(function) {(1 '':[(4 'function':[(5 'function')]), (4 'function':[(5 'function')])])}
+
+|-1
+| |-4: function
+| | |-5: function
+| |-4: function
+| | |-5: function

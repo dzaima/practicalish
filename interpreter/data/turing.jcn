@@ -1,0 +1,13 @@
+function floordiv (a, b) {
+  local mod = a;
+  for (div = 0; mod > 0; div++) mod = mod - b;
+  mod = mod + b;
+  div--;
+  return div;
+}
+println(floordiv(94,10))
+mod = function (a, b) {
+  return a - floordiv(a, b)
+}
+remainder = (a,b)=>mod(a,b)
+print(floordiv(13, 2), mod(16, remainder(19, 10)));

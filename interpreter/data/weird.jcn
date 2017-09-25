@@ -1,0 +1,7 @@
+else = 92
+eval(`{$(if `` return 0 else `` `then` else else)}`) = if else 4;
+f = {
+  if if then else else
+}
+println(f(true));//prints 4
+println(f(false));//prints 92
