@@ -1,20 +1,8 @@
-for (i = 1; i < 99; i++) {
-  //println("loop");
+for (i = 2; i < 99; i++) {
   isprime = 1;
   for (j = 2; j < i; j++) {
-    for (divides = i/j; divides > 0; divides = divides - 1) ;
-    //println("for loop", i, j)
+    for (divides = i/j; divides > 0; divides = divides - 1);
     if (divides == 0) isprime = 0;
-    //println(i, j, divides, divides==0, isprime);
-    //if (isprime) println("isprime survives if", isprime);
   }
   if (isprime) println(i);
 }
-/*
-f=a=>a<1?1:a*f(a-1)
-f=a{a<1?1:a*f(a-1)}
-f={$1<1?1:$1*f($1-1)}
-f=lambda a:a<1?1:a*f(a-1)
-f=lambda/:/<1?1:/*f(/-1)
-
-*/

@@ -7,7 +7,7 @@ function floordiv (a, b) {
 }
 println(floordiv(94,10))
 mod = function (a, b) {
-  return a - floordiv(a, b)
+  return a - b*floordiv(a, b)
 }
 remainder = (a,b)=>mod(a,b)
 print(floordiv(13, 2), mod(16, remainder(19, 10)));

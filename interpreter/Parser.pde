@@ -348,7 +348,7 @@ class Parser {
     
     //create function calling of anything
     for (int i = 0; i < tp.size()-1; i++) {
-      if (tp.get(i+1).is(object) && tp.get(i).is(new int[]{1,5,4})) {
+      if (tp.get(i+1).is(object) && tp.get(i).is(new int[]{1,5})) {
         Node func = tp.get(i);
         Node params = tp.get(i+1);
         if (func.is(5)) {

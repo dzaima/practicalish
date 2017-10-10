@@ -10,9 +10,9 @@ int ctr = 0;
 int testing = 0;
 void setup() {
   defsSetup();
-  String program = "``$(print(`Calculate: $(`2+2` + ` = $(2+int(`$(1+1)`))!`)`)) == `12*2`, \\\\\\`` ``;print(\"hello, \"+   (1 + 2*3)  +  4+5 * 6  +  (9 + 8 - 7 + 6 - five - 4 + 3 + 2 - 1)  +  4^3^2  +  4*3*2)";
+  String program;
        //change the file name here to choose different programs
-  program = join(loadStrings("primes.jcn"), '\n');
+  program = join(loadStrings("funcs.jcn"), '\n');
   
   
   

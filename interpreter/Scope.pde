@@ -55,7 +55,7 @@ class Scope {
           //((Func)callFunction("_lambda_", n.get(0).children)).call(new Parameter(n.get(1).children, this), this);
           Scope getfunc = new Scope(n.get(0), this);
           Obj func = getfunc.run();
-          if (!(func instanceof Func)) throw new Exception("Called isn't a function: " + func + " from \n" + n.get(0));
+          if (!(func instanceof Func)) throw new Exception("Called isn't a function: " + func + " from \n" + n);
           return ((Func)func).call(new Parameter(parametrize(n.get(1)).children, this), this);
         } else creturn = callFunction(n.content, n.children);
       break;
