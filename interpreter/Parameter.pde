@@ -31,6 +31,7 @@ class Parameter {
     return raw.get(index);
   }
   Obj call (int index) throws Exception {
+    //println(this, " # ", index, " # ", scope);
     Scope cscope = new Scope(raw.get(index), scope);
     //println("START", raw.get(index), cscope);
     parsed[index] = cscope.run();

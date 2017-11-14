@@ -12,7 +12,7 @@ void setup() {
   defsSetup();
   String program;
        //change the file name here to choose different programs
-  program = join(loadStrings("funcs.jcn"), '\n');
+  program = join(loadStrings("A000938.jcn"), '\n');
   
   
   

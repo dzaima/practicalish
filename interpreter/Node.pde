@@ -5,8 +5,8 @@ class Node {
     types:
    0  - unknown
    1  - group (e.g. parentheses)
-   2  - function repr (e.g. {a+b})      2 * 2*2
-   3  - order of operations group (e.g. ^   ^^^)
+   2  - function repr (e.g. {a+b})       2 * 2*2
+   3  - order of operations group (e.g. (^) (^^^))
    4  - function call (e.g. print "Hello, World!", fact(5))
    
    5  - literal (e.g. pi, 628)

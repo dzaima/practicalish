@@ -41,6 +41,9 @@ class Num extends Obj {
   Num times (Num inp) {
     return new Num(bd.multiply(inp.bd));
   }
+  Num mod (Num inp) {
+    return new Num(bd.remainder(inp.bd));
+  }
   Num dividedby (Num inp) {
     try {
       return new Num(bd.divide(inp.bd));

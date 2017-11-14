@@ -43,13 +43,25 @@ class Func extends Obj {
           if (params.size() != 3) throw new Exception("for: Expected 3 parameters, got " + params.size());
           params.call(0);
           Node body = scope.parent.getNextObj();
-          //println(body);
           Obj toReturn = new Obj();
           if (body.type == 2) body.type = 1;
           while (params.call(1).truthy()) {
             toReturn = new Scope(body, scope).run();
             //ORETif (toReturn instanceof Return && ((Return)toReturn).nextReturn) 
             params.call(2);
+          }
+          return toReturn;
+        //break;
+        
+        case "while":
+          if (params.size() != 1) throw new Exception("while: Expected 1 parameter, got " + params.size());
+          /*Node*/ body = scope.parent.getNextObj();
+          /*Obj*/ toReturn = new Obj();
+          if (body.type == 2) body.type = 1;
+          while (params.call(0).truthy()) {
+            //println("S# ", body, " # ", scope, " E# ");
+            toReturn = new Scope(body, scope).run();
+            //ORETif (toReturn instanceof Return && ((Return)toReturn).nextReturn) 
           }
           return toReturn;
         //break;
@@ -145,6 +157,13 @@ class Func extends Obj {
             return (NumZERO).minus((Num)p1);
           } else throw new Exception ("_neg_ expects parameters like {Num}, but got {" + p1.getClass() + "}");
         //break;
+        case "_mod_":
+          p1 = params.getVal(0);
+          p2 = params.getVal(1);
+          if (p1 instanceof Num && p2 instanceof Num) {
+            return ((Num)p1).mod((Num)p2);
+          } else throw new Exception ("_mod_ expects parameters like {Num, Num}, but got {" + p1.getClass() + ", " + p2.getClass() + "}");
+        //break;
         
         
         //other stuff
@@ -153,15 +172,27 @@ class Func extends Obj {
           if (!(var.get() instanceof Num)) throw new Exception("_postinc_ expected variable of type {Num}, got type "+ var.get().getClass());
           BigDecimal num = ((Num)var.get()).bd;
           var.set(new Num(num.add(BigDecimal.ONE)));
-          //println(var.get());
           return new Num(num);
         //break;
         case "_postdec_":
-          var = scope.getVariable(params.getVar(0));
+          /*Var*/ var = scope.getVariable(params.getVar(0));
           if (!(var.get() instanceof Num)) throw new Exception("_postinc_ expected variable of type {Num}, got type "+ var.get().getClass());
-          num = ((Num)var.get()).bd;
+          /*BigDecimal*/ num = ((Num)var.get()).bd;
           var.set(new Num(num.subtract(BigDecimal.ONE)));
-          //println(var.get());
+          return new Num(num);
+        //break;
+        case "_preinc_":
+          /*Var*/ var = scope.getVariable(params.getVar(0));
+          if (!(var.get() instanceof Num)) throw new Exception("_postinc_ expected variable of type {Num}, got type "+ var.get().getClass());
+          /*BigDecimal*/ num = ((Num)var.get()).bd.add(BigDecimal.ONE);
+          var.set(new Num(num));
+          return new Num(num);
+        //break;
+        case "_predec_":
+          /*Var*/ var = scope.getVariable(params.getVar(0));
+          if (!(var.get() instanceof Num)) throw new Exception("_postinc_ expected variable of type {Num}, got type "+ var.get().getClass());
+          /*BigDecimal*/ num = ((Num)var.get()).bd.subtract(BigDecimal.ONE);
+          var.set(new Num(num));
           return new Num(num);
         //break;
         case "_lambda_":
@@ -200,6 +231,27 @@ class Func extends Obj {
           if (p1 instanceof Num && p2 instanceof Num) {
             return new Bool(((Num)p1).compareTo((Num)p2)==0);
           } else throw new Exception ("_eq_ expects parameters like {Num, Num}, but got {" + p1.getClass() + ", " + p2.getClass() + "}");
+        //break;
+        case "_neq_":
+          p1 = params.getVal(0);
+          p2 = params.getVal(1);
+          if (p1 instanceof Num && p2 instanceof Num) {
+            return new Bool(((Num)p1).compareTo((Num)p2)!=0);
+          } else throw new Exception ("_eq_ expects parameters like {Num, Num}, but got {" + p1.getClass() + ", " + p2.getClass() + "}");//TODO ..no?
+        //break;
+        case "_le_":
+          p1 = params.getVal(0);
+          p2 = params.getVal(1);
+          if (p1 instanceof Num && p2 instanceof Num) {
+            return new Bool(((Num)p1).compareTo((Num)p2)<=0);
+          } else throw new Exception ("_le_ expects parameters like {Num, Num}, but got {" + p1.getClass() + ", " + p2.getClass() + "}");
+        //break;
+        case "_ge_":
+          p1 = params.getVal(0);
+          p2 = params.getVal(1);
+          if (p1 instanceof Num && p2 instanceof Num) {
+            return new Bool(((Num)p1).compareTo((Num)p2)<=0);
+          } else throw new Exception ("_ge_ expects parameters like {Num, Num}, but got {" + p1.getClass() + ", " + p2.getClass() + "}");
         //break;
         
         
